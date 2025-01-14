@@ -1,7 +1,7 @@
 from Bio import SeqIO
 from itertools import product
 
-# Mapping of ambiguous codes to possible bases
+# Dictionary mapping ambiguous codes to possible bases
 ambiguous_codes = {
     "A": "A",
     "C": "C",
@@ -20,7 +20,8 @@ ambiguous_codes = {
     "Y": "CT"
 }
 
-
+# Function to expand ambiguous DNA sequences into all possible DNA sequences they may represent. This is necessary to
+# handle restriction enzyme recognition sites with ambiguous codes.
 def expand_recognition_sequence(sequence, code_map):
     bases = [code_map[char] for char in sequence]
     possible_sequences = ["".join(comb) for comb in product(*bases)]
@@ -343,5 +344,3 @@ def main():
     print(f"Results have been written to {output_file}")
 
 main()
-# if __name__ == "__main__":
-#     main()
