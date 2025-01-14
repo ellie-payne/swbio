@@ -79,7 +79,8 @@ def parse_fasta(file_path):
     return sequences
 
 
-# Restriction enzymes dictionary with exact recognition sequences
+# Restriction enzyme dictionary with recognition sequences including ambiguous codes, translated to exact codes using
+# expand_recognition_sequence function
 restriction_enzymes = {
     "AatII": expand_recognition_sequence("GACGTC", ambiguous_codes),
     "Acc65I": expand_recognition_sequence("GGTACC", ambiguous_codes),
