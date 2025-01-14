@@ -1,3 +1,4 @@
+# Required packages
 from Bio import SeqIO
 from itertools import product
 
@@ -253,7 +254,7 @@ restriction_enzymes = {
 }
 
 
-# Function to write results to a text file
+# Function to write results to a .txt file
 def write_results_to_file(output_file, seq_id, sequence, orfs, gc_content, sorted_sites):
     with open(output_file, "a") as f:
         f.write(f"> {seq_id}\n")
@@ -271,7 +272,7 @@ def write_results_to_file(output_file, seq_id, sequence, orfs, gc_content, sorte
         f.write("\n")  # Add a newline between results
 
 
-# Function to save the sequence as a FASTA file
+# Function to save the sequence as a .fasta file
 def save_sequence_to_fasta(sequence, sequence_name):
     with open(f"{sequence_name}.fasta", "w") as f:
         f.write(f">{sequence_name}\n")
@@ -280,7 +281,7 @@ def save_sequence_to_fasta(sequence, sequence_name):
 
 # Main function to process the pipeline
 def main():
-    # Prompt user for input: FASTA file or sequence string
+    # Prompt user for input
     input_choice = input(
         "Would you like to provide a FASTA file or a DNA sequence string? (Enter 'file' or 'string'): ").strip().lower()
 
